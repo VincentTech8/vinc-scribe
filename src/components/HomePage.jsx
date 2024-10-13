@@ -11,7 +11,10 @@ const Homepage = (props) => {
                 <p className='text-blue-500'>Record</p>
                 <i className={"fa-solid duration-200 fa-microphone"}></i>
             </button>
-            <p className='text-base'>Or <label className='text-blue-500 hover:text-blue-700 cursor-pointer duration-200'>upload<input className='hidden' type='file' accept='.mp3,.wave' /></label> a mp3 file</p>
+            <p className='text-base'>Or <label className='text-blue-500 hover:text-blue-700 cursor-pointer duration-200'>upload<input onChange={(e) => {
+                const tempFile = e.target.files[0]
+                setFile(tempFile)
+            }} className='hidden' type='file' accept='.mp3,.wave' /></label> a mp3 file</p>
             <p className='italic text-slate-400'>Free now free forever!</p>
         </main>
     )

@@ -1,17 +1,22 @@
 import { useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Homepage from "./components/Homepage";
 import FileDisplay from "./components/FileDisplay";
+import Homepage from "./components/HomePage";
 
 
 function App() {
-  // Check for a file (upload)
+  // Check for an uploaded file 
   const [file, setFile] = useState(null);
   // Check for a live recording
   const [audioStream, setAudioStream] = useState(null);
 
   const isAudioAvailable = file || audioStream;
+
+  function handleAudioReset() {
+    setFile(null)
+    setAudioStream(null)
+  };
 
   return (
     <div className="flex flex-col">
@@ -19,7 +24,7 @@ function App() {
         <Header />
         {/* Conditions start here! */}
         {isAudioAvailable ? (
-          <FileDisplay />
+          <FileDisplay file={file} audioStream={audioStream} handleAudioReset={handleAudioReset} />
         ) : (
           <Homepage setFile={setFile} setAudioStream={setAudioStream} />
         )}
