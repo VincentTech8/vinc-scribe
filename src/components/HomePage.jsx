@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Homepage = () => {
+const Homepage = (props) => {
+    const { setFile, setAudioStream } = props;
+
     return (
         <main className='flex flex-col flex-auto items-center justify-center gap-3 sm:gap-4'>
             <h1 className='font-semibold text-5xl sm:text-6xl md:text-7xl'>V<span className='text-blue-500 bold'>Scribe</span></h1>

@@ -18,7 +18,11 @@ function App() {
       <section className="container mx-auto flex flex-col min-h-screen w-full max-w-[1000px]">
         <Header />
         {/* Conditions start here! */}
-        {isAudioAvailable ? (<FileDisplay />) : (<Homepage />)}
+        {isAudioAvailable ? (
+          <FileDisplay />
+        ) : (
+          <Homepage setFile={setFile} setAudioStream={setAudioStream} />
+        )}
       </section>
       <Footer />
     </div>
